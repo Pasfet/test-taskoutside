@@ -4,7 +4,7 @@ import Button from './components/UI/Button/Button';
 import Popup from './components/Popup/Popup';
 
 const App: FC = () => {
-  const [salary, setSalary] = useState<number>(0);
+  const [salary, setSalary] = useState<number | string>('');
   const [openPopup, setOpenPopup] = useState<boolean>(false);
   const [openCalc, setOpenCalc] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
@@ -17,7 +17,12 @@ const App: FC = () => {
     setOpenCalc(false);
     setDeductions([]);
     setSelectedDeductions([]);
-    setSalary(Number(e.target.value));
+
+    if (isNaN(Number(e.target.value))) {
+      setSalary('');
+    } else {
+      setSalary(Number(e.target.value));
+    }
   };
 
   const toggleOpen = (e: MouseEvent<HTMLElement>): void => {
@@ -39,7 +44,7 @@ const App: FC = () => {
     if (salary) {
       setOpenCalc((prev: boolean) => !prev);
       const percent = 0.13;
-      const deductionPerYear = salary * 12 * percent;
+      const deductionPerYear = Number(salary) * 12 * percent;
       perYearPayments(deductionPerYear);
     } else {
       setError(true);
@@ -47,8 +52,6 @@ const App: FC = () => {
   };
 
   const selectItem = (e: ChangeEvent<HTMLInputElement>, ch: any): void => {
-    console.log(e.target.checked);
-    console.log(ch[0].props.children);
     const deduction = ch[0].props.children[0];
 
     if (e.target.checked) {

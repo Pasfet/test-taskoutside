@@ -68,7 +68,7 @@ const Popup: FC<IPopupProps> = ({
                   {deductions?.map((pay, idx) => (
                     <PopupFormItem key={idx}>
                       <Checkbox onChangeHandler={selectItem}>
-                        <PopupPayment>{pay} рублей</PopupPayment>
+                        <PopupPayment>{pay.toFixed(0)} рублей</PopupPayment>
                         {idx + 1}-ый год
                       </Checkbox>
                     </PopupFormItem>

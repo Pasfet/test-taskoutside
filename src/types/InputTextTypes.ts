@@ -5,6 +5,7 @@ export interface IInputTextProps {
   error?: boolean;
   placeholder?: string;
   disabled?: boolean;
-  value: number;
+  value: number | string;
+  type?: string;
   onChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
 }

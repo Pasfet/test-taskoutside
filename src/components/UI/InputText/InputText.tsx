@@ -9,12 +9,13 @@ const InputText: FC<IInputTextProps> = ({
   disabled,
   value,
   onChangeHandler,
+  type = 'text',
 }) => {
   return (
     <InputLabel>
       {label}
       <InputTextField
-        type="text"
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChangeHandler}

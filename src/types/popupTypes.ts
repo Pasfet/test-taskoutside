@@ -2,7 +2,7 @@ import { ChangeEvent, MouseEvent } from "react";
 
 export interface IPopupProps {
   show: boolean;
-  salary: number;
+  salary: number | string;
   openCalc: boolean;
   error: boolean;
   deductions: Array<number>;
