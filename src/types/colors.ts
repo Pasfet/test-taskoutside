@@ -1,0 +1,11 @@
+export enum Colors {
+  RED_COLOR = '#EA0029',
+  HOVER_RED = '#F53A31',
+  WHITE_COLOR = '#fff',
+  GRAY_900 = '#BEC5CC',
+  GRAY_800 = '#DFE3E6',
+  GRAY_700 = '#EEF0F2',
+  GRAY_SPACES = '#B3B3B3',
+  BLACK_COLOR = '#000',
+  DISABLED_COLOR = '#808080'
+}
